@@ -40,7 +40,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.logging.Logger;
 
 
-public class MainActivity extends AppCompatActivity implements Tab1.SenderInterface, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     TabLayout tabLayout;
     FragmentViewPagerAdapter adapter;
@@ -128,17 +128,6 @@ public class MainActivity extends AppCompatActivity implements Tab1.SenderInterf
     }
 
     @Override
-    public void passNumber(int num) {
-        Tab2 fragment = (Tab2) adapter.getFragment(1);
-        if (fragment != null) {
-            log.info("fragment isn't null");
-            fragment.setNumber(num);
-        } else {
-            Log.d("Not Initialized", "Fragment 2 isn't initialized");
-        }
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.refresh: refreshEventsPage();
@@ -148,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements Tab1.SenderInterf
                 break;
 
         }
-
         return super.onOptionsItemSelected(item);
     }
 
